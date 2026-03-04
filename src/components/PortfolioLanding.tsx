@@ -995,14 +995,14 @@ type Project = {
 const projects = [
   {
     title: "Flutter Whats UI",
-    img: "./src/assets/flutter_whats_ui.mp4",
+    img: "/assets/flutter_whats_ui.mp4",
     summary: "A WhatsApp inspired messaging UI built with Flutter. Showcases clean responsive layouts, reusable widgets and real world chat interface design. ",
     details: `This project is a WhatsApp inspired chat interface built using Flutter. it demonstrates my ability to design and implement real world mobile app UIs with clean layouts, reusable components and responsive design`,
     techStack: ["Flutter", "Dart"],
   },
   {
     title: "Flutter Chirp App",
-    img: "./src/assets/chirp.mp4",
+    img: "/assets/chirp.mp4",
     summary: "Chirp is social media platform a space to connect effortlessly with friends and communities. it demonstrates my ability to design and implement real world mobile app",
     details: `A space to connect effortlessly with friends and communities. 
               Browse a dynamic feed, share and refine ideas, 
