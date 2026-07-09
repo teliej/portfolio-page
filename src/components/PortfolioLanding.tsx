@@ -1153,9 +1153,9 @@ export default function PortfolioLanding() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-gray-300 leading-relaxed max-w-80"
+                className="text-gray-300 text-sm leading-relaxed max-w-80"
               >
-                I build sleek apps that feel alive with perfect digital experiences.
+                I design and develop software that transforms ideas into intuitive, high performance digital experiences.
               </motion.p>
             </div>
             {/* Context nav (desktop only) + Socials */}
@@ -1252,19 +1252,19 @@ export default function PortfolioLanding() {
             ">ABOUT</h2>
             <div className="space-y-5">
               <p className="text-gray-300 leading-relaxed">
-                I build experiences people actually enjoy using.
-                I’ve spent the last few years mastering{" "}
-                <span className="text-white font-semibold">
-                JavaScript, Python, and Flutter 
-                </span>
-                {" "}shaping,
-                turning ideas into clean, interactive and modern apps that don't just work but feel right.
-                I craft flow, emotion, and precision into every click, and swipe.
-
+                I'm a <span className="text-white font-semibold">Software Engineer </span>
+                passionate about building modern web and mobile applications that are
+                intuitive, scalable, and built to last. With over
+                <span className="text-white font-semibold"> 7 years of experience </span>
+                across multiple technologies, I transform ideas into reliable software
+                through clean architecture, thoughtful design, and maintainable code base.
+                My focus is on creating products that deliver exceptional user experiences
+                without compromising performance, quality, or scalability.
               </p>
+              
               <p className="text-gray-400 italic">
-                When I’m not coding, I’m exploring design vibes and cinematic anime
-                soundtracks.
+                Beyond software development, I enjoy exploring product design, emerging
+                technologies, and the engineering principles behind great digital products.
               </p>
 
 
@@ -1273,7 +1273,7 @@ export default function PortfolioLanding() {
 
 
 
-  <h3 className="text-gray-200 font-semibold text-xl pt-4">What I Do?</h3>
+  <h3 className="text-gray-200 font-semibold text-xl pt-4">What Drives My Work</h3>
   {/* Glass Cards */}
   <div className="flex flex-wrap gap-4 pt-4">
     {/* Card 1 */}
@@ -1301,10 +1301,9 @@ export default function PortfolioLanding() {
           d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
         />
       </svg>
-      <h3 className="text-gray-200 font-semibold text-base">Fast Learning</h3>
+      <h3 className="text-gray-200 font-semibold text-base">Engineering Excellence</h3>
       <p className="text-gray-300 text-sm">
-        I quickly adapt to new tools and frameworks, always keeping up with
-        modern tech.
+        Building scalable software with clean architecture, maintainable code, and reliable performance.
       </p>
     </motion.div>
 
@@ -1332,10 +1331,9 @@ export default function PortfolioLanding() {
           d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
         />
       </svg>
-      <h3 className="text-gray-200 font-semibold text-base">Clean Code</h3>
+      <h3 className="text-gray-200 font-semibold text-base">Adaptability</h3>
       <p className="text-gray-300 text-sm">
-        Writing maintainable and scalable code is at the core of my development
-        approach.
+        Learning new technologies quickly and choosing the right tools for each problem instead of forcing a familiar solution.
       </p>
     </motion.div>
 
@@ -1363,9 +1361,9 @@ export default function PortfolioLanding() {
           d="M5 13l4 4L19 7"
         />
       </svg>
-      <h3 className="text-gray-200 font-semibold text-base">UI/UX Focused</h3>
+      <h3 className="text-gray-200 font-semibold text-base">Attention to Detail</h3>
       <p className="text-gray-300 text-sm">
-        I love crafting smooth and visually appealing experiences for users.
+       Polishing every interaction from system design to the smallest UI detail to create software that feels professional and dependable.
       </p>
     </motion.div>
   </div>
@@ -1762,14 +1760,10 @@ export default function PortfolioLanding() {
               {/* Left: personal story */}
               <div className="backdrop-blur-xl bg-white/5 p-8 rounded-2xl border border-white/10 text-left shadow-lg hover:shadow-purple-800/20 transition">
                 <h3 className="text-xl font-semibold text-gray-100 mb-4">
-                  Calm • Creative • Curious
+                  Calm • Curious • Intentional
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  I’m a Flutter developer who enjoys crafting clean, fluid interfaces and
-                  experiences that just click.  
-                  My process is simple keep things smooth, meaningful, and slightly
-                  unexpected.  
-                  I don’t just build apps; I design the flow that makes people feel something when they use them.
+                  I enjoy building software that is as dependable as it is intuitive. Whether I'm designing a mobile application or architecting a backend service, I value simplicity, thoughtful engineering, and attention to detail. I believe the best products aren't defined by how much they do, but by how effortlessly they solve the problems they were built for.
                 </p>
               </div>
 
@@ -1779,10 +1773,10 @@ export default function PortfolioLanding() {
                   A Bit About Me
                 </h3>
                 <ul className="space-y-3 text-gray-300">
-                  <li>⚡ I love designs that talk before the code even runs.</li>
-                  <li>🎧 Usually coding with lo-fi or amapiano on repeat.</li>
-                  <li>🧩 Big on building smooth experiences no clutter, no stress.</li>
-                  <li>🌍 Currently exploring how to blend creativity, logic, and flow into every project I touch.</li>
+                  <li>🧠 I enjoy breaking down complex problems into simple, practical solutions.</li>
+                  <li>🎧 You'll usually find me coding with music in the background and a notebook full of ideas nearby.</li>
+                  <li>🚀 I'm always exploring new technologies, software architecture, and better ways to build scalable applications.</li>
+                  <li>✨ I believe great software comes from balancing engineering excellence with a genuine understanding of the people who use it.</li>
                 </ul>
               </div>
             </div>
@@ -1803,25 +1797,20 @@ export default function PortfolioLanding() {
             </h2>
 
             <p className="text-lg md:text-xl text-gray-500 leading-relaxed relative z-10">
-              I believe apps should do more than work, they should{" "}
+              I believe exceptional software is built where thoughtful engineering meets{" "}
               <span className="font-semibold text-gray-400">
-                feel alive.{" "}
+                purposeful design.{" "}
               </span>
-              Every button, color, and animation should speak the same language, clarity and flow.  
-              My goal is to build digital spaces that feel{" "}
+              Every technical decision from architecture to the smallest interface detail should contribute to a product that is{" "}
               <span className="font-bold text-gray-400">
-                personal, fluid, and intentional{" "} 
+                reliable, intuitive, and built to last.{" "} 
               </span>
-              where technology fades into the background and the{" "}
-              <span className="font-semibold text-gray-400">
-                experience{" "} 
-              </span>
-              takes center stage.
+              My goal is to create software that solves meaningful problems with clarity, performance, and craftsmanship, delivering experiences that feel effortless because of the engineering behind them.
             </p>
 
             <div className="mt-12 relative z-10">
               <p className="text-sm uppercase tracking-widest text-gray-500">
-                ⚡ Craft. Flow. Emotion. Precision.
+                ⚡ Simplicity • Performance • Craftsmanship.
               </p>
             </div>
           </section>
