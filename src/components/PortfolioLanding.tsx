@@ -974,7 +974,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Github, Instagram, InstagramIcon, Linkedin, Mail, TwitterIcon, XIcon } from "lucide-react";
 import { FaReact, FaJsSquare } from "react-icons/fa";
-import { SiFlutter, SiDart, SiTailwindcss } from "react-icons/si";
+import { SiFlutter, SiDart, SiTailwindcss, SiReact, SiNextdotjs, SiNestjs, SiDjango, SiFlask, SiPython, SiPostgresql } from "react-icons/si";
 import { SiFirebase, SiSupabase, SiNodedotjs, SiMysql } from "react-icons/si";
 
 
@@ -1142,12 +1142,12 @@ export default function PortfolioLanding() {
                 transition={{ delay: 0.3 }}
                 className="flex items-center gap-2 text-xl md:text-xl font-semibold text-gray-300 max-w-md"
               >
-                <img
+                {/* <img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
                   alt=""
                   className="w-6 h-6"
-                />
-                Flutter developer
+                /> */}
+                Software Engineer
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -1191,19 +1191,19 @@ export default function PortfolioLanding() {
 
               {/* Social icons */}
               <div className="flex gap-6">
-                <a href="https://github.com/teliej" className="text-gray-300 hover:text-purple-400 transition-colors">
+                <a href="https://github.com/teliej" className="hover:text-purple-400 transition-colors">
                   <Github size={22} />
                 </a>
-                <a href="#" className="text-gray-300 hover:text-purple-400 transition-colors">
+                <a href="#" className="hover:text-purple-400 transition-colors">
                   <Linkedin size={22} />
                 </a>
-                <a href="teliej52@gmail.com" className="text-gray-300 hover:text-purple-400 transition-colors">
+                <a href="teliej52@gmail.com" className="hover:text-purple-400 transition-colors">
                   <Mail size={22} />
                 </a>
-                <a href="https://x.com/teliej" className="text-gray-300 hover:text-purple-400 transition-colors">
+                <a href="https://x.com/teliej" className="hover:text-purple-400 transition-colors">
                   <XIcon size={26} />
                 </a>
-                <a href="https://www.instagram.com/teliej_/" className="text-gray-300 hover:text-purple-400 transition-colors">
+                <a href="https://www.instagram.com/teliej_/" className="hover:text-purple-400 transition-colors">
                   <InstagramIcon size={22} />
                 </a>
               </div>
@@ -1248,11 +1248,11 @@ export default function PortfolioLanding() {
               />
             </div> */}
 
-            <h2 className="text-xl font-bold mb-1 text-purple-400 py-4
+            <h2 className="text-xl font-bold mb-1 text-gray-300 py-4
             ">ABOUT</h2>
             <div className="space-y-5">
               <p className="text-gray-300 leading-relaxed">
-                I’m a tech artist who builds experiences people actually enjoy using.
+                I build experiences people actually enjoy using.
                 I’ve spent the last few years mastering{" "}
                 <span className="text-white font-semibold">
                 JavaScript, Python, and Flutter 
@@ -1289,7 +1289,7 @@ export default function PortfolioLanding() {
   
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-10 w-10 text-blue-400"
+        className="h-10 w-10 text-gray-300"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -1320,7 +1320,7 @@ export default function PortfolioLanding() {
                       flex flex-col items-center text-center space-y-2">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-10 w-10 text-green-400"
+        className="h-10 w-10 text-gray-300"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -1351,7 +1351,7 @@ export default function PortfolioLanding() {
                       flex flex-col items-center text-center space-y-2">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-10 w-10 text-pink-400"
+        className="h-10 w-10 text-gray-300"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -1386,7 +1386,7 @@ export default function PortfolioLanding() {
       data-section="Projects"
       className="bg-gray-900 max-w-6xl mx-auto py-8 px-6"
     >
-      <h2 className="text-3xl font-bold mb-12 text-purple-400 text-center">
+      <h2 className="text-3xl font-bold mb-12 text-gray-300 text-center">
         Ongoing Projects
       </h2>
 
@@ -1408,10 +1408,10 @@ export default function PortfolioLanding() {
 
 
               {/* Punch Hole Camera */}
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-black rounded-full border border-gray-600 shadow-[0_0_6px_rgba(255,255,255,0.2)] z-20"></div>
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-black rounded-full z-20"></div>
 
               {/* Screen Area */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center">
+              <div className="absolute inset-0 bg-black flex items-center justify-center">
                 {/* Image */}
 
                 <video
@@ -1425,10 +1425,6 @@ export default function PortfolioLanding() {
                 /> 
                 {/* <p className="text-white font-semibold text-lg">App Preview</p> */}
               </div>
-
-              {/* Glass Reflection */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
-
             </div>
 
 
@@ -1447,7 +1443,7 @@ export default function PortfolioLanding() {
                 <button
                   onClick={() => setActiveProject(project)}
                   className="px-4 py-2 hover:bg-purple-300 
-                            rounded-lg border-[2px] border-purple-500 text-purple-600 font-medium text-[clamp(0.8rem,1.5vw,1rem)]"
+                            rounded-lg border-[2px] border-gray-500 text-gray-300 font-medium text-[clamp(0.8rem,1.5vw,1rem)]"
                 >
                   Read More
                 </button>
@@ -1564,7 +1560,7 @@ export default function PortfolioLanding() {
                 <h3 className="text-xl font-semibold text-gray-200 mb-1">
                   {exp.role}
                 </h3>
-                <p className="text-purple-400 text-sm font-medium mb-2">
+                <p className="text-gray-400 text-sm font-medium mb-2">
                   {exp.place} • {exp.year}
                 </p>
                 <ul className="text-gray-300 text-sm list-disc pl-5 space-y-1 mb-3">
@@ -1576,7 +1572,7 @@ export default function PortfolioLanding() {
                   {exp.tech.map((t, j) => (
                     <span
                       key={j}
-                      className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-md"
+                      className="text-xs border border-gray-500 font-bold text-gray-300 px-2 py-1 rounded-md"
                     >
                       {t}
                     </span>
@@ -1592,7 +1588,7 @@ export default function PortfolioLanding() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="flex items-center gap-2 text-xl md:text-xl font-semibold text-gray-300 py-4 px-4 max-w-md"
+            className="flex items-center gap-2 text-xl md:text-xl font-semibold text-gray-400 py-4 px-4 max-w-md"
           >
             View Full Resume
             <ArrowUpRight size={24} />
@@ -1620,7 +1616,7 @@ export default function PortfolioLanding() {
   className="max-w-5xl mx-auto py-10 px-6 text-center"
 >
   {/* Heading */}
-  <h2 className="text-3xl font-bold mb-12 text-purple-400">
+  <h2 className="text-3xl font-bold mb-12 text-gray-300">
     Tech Stack
   </h2>
 
@@ -1631,23 +1627,28 @@ export default function PortfolioLanding() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
         <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
-          <SiFlutter className="text-blue-400 text-5xl" />
+          <SiFlutter className="text-white text-5xl" />
           <span className="font-medium text-gray-400">Flutter</span>
         </div>
 
         <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
-          <SiDart className="text-sky-400 text-5xl" />
-          <span className="font-medium text-gray-400">Dart</span>
+          <SiReact className="text-white text-5xl" />
+          <span className="font-medium text-gray-400">React</span>
         </div>
 
         <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
-          <FaJsSquare className="text-yellow-400 text-5xl" />
+          <FaJsSquare className="text-white text-5xl" />
           <span className="font-medium text-gray-400">JavaScript</span>
         </div>
 
         <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
-          <SiTailwindcss className="text-cyan-400 text-5xl" />
+          <SiTailwindcss className="text-white text-5xl" />
           <span className="font-medium text-gray-400">Tailwind CSS</span>
+        </div>
+
+        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
+          <SiNextdotjs className="text-white text-5xl" />
+          <span className="font-medium text-gray-400">Next.js</span>
         </div>
       </div>
     </div>
@@ -1659,29 +1660,61 @@ export default function PortfolioLanding() {
         Backend & Services
       </h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-        {/* Firebase */}
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiFirebase className="h-12 w-12 text-yellow-400" />
-          <span className="font-medium text-gray-400">Firebase</span>
-        </div>
 
-        {/* Firebase */}
+        {/* Python */}
         <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiSupabase className="h-12 w-12 text-yellow-400" />
-          <span className="font-medium text-gray-400">Supabase</span>
+          <SiPython className="h-12 w-12 text-white" />
+          <span className="font-medium text-gray-400">Python</span>
         </div>
 
         {/* Node.js */}
         <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiNodedotjs className="h-12 w-12 text-green-500" />
-          <span className="font-medium text-gray-400">Node.js (basic)</span>
+          <SiNodedotjs className="h-12 w-12 text-white" />
+          <span className="font-medium text-gray-400">Node.js</span>
+        </div>
+
+         {/* Django */}
+        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+          <SiDjango className="h-12 w-12 text-white" />
+          <span className="font-medium text-gray-400">Django</span>
         </div>
 
         {/* SQL */}
         <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiMysql className="h-12 w-12 text-blue-400" />
-          <span className="font-medium text-gray-400">SQL</span>
+          <SiMysql className="h-12 w-12 text-white" />
+          <span className="font-medium text-gray-400">MySql</span>
         </div>
+
+        {/* Flask */}
+        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+          <SiFlask className="h-12 w-12 text-white" />
+          <span className="font-medium text-gray-400">Flask</span>
+        </div>
+
+         {/* Nestjs */}
+        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+          <SiNestjs className="h-12 w-12 text-white" />
+          <span className="font-medium text-gray-400">Nest.js</span>
+        </div>
+
+        {/* Firebase */}
+        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+          <SiFirebase className="h-12 w-12 text-white" />
+          <span className="font-medium text-gray-400">Firebase</span>
+        </div>
+
+        {/* Supabase */}
+        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+          <SiSupabase className="h-12 w-12 text-white" />
+          <span className="font-medium text-gray-400">Supabase</span>
+        </div>
+
+        {/* Postgresql */}
+        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+          <SiPostgresql className="h-12 w-12 text-white" />
+          <span className="font-medium text-gray-400">Postgresql</span>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1721,7 +1754,7 @@ export default function PortfolioLanding() {
             {/* Subtle gradient background */}
             <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-indigo-900/10 rounded-3xl blur-2xl"></div>
 
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-purple-400 relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-300 relative z-10">
               Beyond Code
             </h2>
 
@@ -1765,7 +1798,7 @@ export default function PortfolioLanding() {
             {/* Soft gradient glow behind text */}
             <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-transparent to-indigo-900/20 blur-3xl"></div>
 
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-purple-400 relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-300 relative z-10">
               My Vision
             </h2>
 
@@ -1803,7 +1836,7 @@ export default function PortfolioLanding() {
           >
             <div className="max-w-2xl mx-auto text-center">
               {/* Section Label */}
-              <p className="uppercase tracking-widest text-sm text-gray-400 mb-2">
+              <p className="uppercase tracking-widest text-sm text-gray-300 mb-2">
                 Contact
               </p>
 
@@ -1824,13 +1857,13 @@ export default function PortfolioLanding() {
                 {/* Gmail with Copy */}
                 <button
                   onClick={copyEmail}
-                  className="w-full md:w-auto flex items-center justify-center gap-3 bg-gray-300 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 px-6 py-4 rounded-xl shadow-sm transition-all duration-200 ease-in-out transform hover:-translate-y-1"
+                  className="w-full md:w-auto flex items-center justify-center gap-3 bg-gray-700 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 px-6 py-4 rounded-xl shadow-sm transition-all duration-200 ease-in-out transform hover:-translate-y-1"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 13.065l11.999-7.065v13h-24v-13z" />
                     <path d="M12 10.935l-12-7.065h24z" />
                   </svg>
-                  <span className="font-medium">
+                  <span className="font-medium text-white">
                     {copied ? "Copied!" : "teliej52@gmail.com"}
                   </span>
                 </button>
@@ -1841,7 +1874,7 @@ export default function PortfolioLanding() {
                   href="https://linkedin.com/in/your-link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full md:w-auto flex items-center justify-center gap-3 bg-blue-700 hover:bg-blue-600 text-white px-6 py-4 rounded-xl shadow-sm transition-all duration-200 ease-in-out transform hover:-translate-y-1"
+                  className="w-full md:w-auto flex items-center justify-center gap-3 bg-blue-900 hover:bg-blue-600 text-white px-6 py-4 rounded-xl shadow-sm transition-all duration-200 ease-in-out transform hover:-translate-y-1"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M4.98 3.5c0 1.38-1.1 2.5-2.48 2.5S0 4.88 0 3.5 1.1 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8.5h4V24h-4zM8.5 8.5h3.8v2.1h.1c.5-1 1.7-2.1 3.6-2.1 3.8 0 4.5 2.5 4.5 5.8V24h-4v-7.5c0-1.8 0-4-2.5-4s-2.9 2-2.9 3.9V24h-4z"/>
@@ -1854,7 +1887,7 @@ export default function PortfolioLanding() {
                   href="https://wa.me/2348032174423"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full md:w-auto flex items-center justify-center gap-3 bg-green-700 hover:bg-green-600 text-white px-6 py-4 rounded-xl shadow-sm transition-all duration-200 ease-in-out transform hover:-translate-y-1"
+                  className="w-full md:w-auto flex items-center justify-center gap-3 bg-green-900 hover:bg-green-600 text-white px-6 py-4 rounded-xl shadow-sm transition-all duration-200 ease-in-out transform hover:-translate-y-1"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.52 3.48C18.21 1.17 15.21 0 12 0 5.37 0 0 5.37 0 12c0 2.11.55 4.14 1.6 5.94L0 24l6.22-1.63c1.71.94 3.63 1.44 5.78 1.44 6.63 0 12-5.37 12-12 0-3.21-1.17-6.21-3.48-8.52zM12 21.33c-1.78 0-3.47-.48-4.96-1.39l-.36-.21-3.69.97.99-3.59-.24-.37c-1-1.54-1.52-3.33-1.52-5.15 0-5.48 4.45-9.93 9.93-9.93 2.65 0 5.14 1.03 7.01 2.9 1.87 1.87 2.9 4.36 2.9 7.03 0 5.48-4.45 9.93-9.93 9.93zm5.55-7.42c-.3-.15-1.78-.88-2.06-.97-.28-.1-.48-.15-.67.15s-.77.97-.94 1.17c-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.51-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.21-.24-.57-.48-.49-.67-.5-.17-.01-.37-.01-.57-.01s-.52.07-.8.37c-.28.3-1.05 1.02-1.05 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.21 5.1 4.5.71.31 1.27.49 1.7.63.71.22 1.35.19 1.86.12.57-.08 1.78-.73 2.03-1.44.25-.71.25-1.32.17-1.44-.08-.13-.28-.2-.57-.35z" />
