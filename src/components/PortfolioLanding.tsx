@@ -1155,7 +1155,7 @@ export default function PortfolioLanding() {
                 transition={{ delay: 0.3 }}
                 className="text-gray-300 leading-relaxed max-w-80"
               >
-                I build softwares that delivers high performance digital experiences.
+                I build software that delivers high performance digital experiences.
               </motion.p> 
             </div>
             {/* Context nav (desktop only) + Socials */}
