@@ -1156,7 +1156,7 @@ export default function PortfolioLanding() {
                 className="text-gray-300 text-sm leading-relaxed max-w-80"
               >
                 I design and develop software that transforms ideas into intuitive, high performance digital experiences.
-              </motion.p>
+              </motion.p> 
             </div>
             {/* Context nav (desktop only) + Socials */}
             <div className="flex flex-col items-start gap-8 mt-10">
