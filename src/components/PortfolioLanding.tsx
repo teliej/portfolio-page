@@ -1153,9 +1153,9 @@ export default function PortfolioLanding() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-gray-300 text-sm leading-relaxed max-w-80"
+                className="text-gray-300 leading-relaxed max-w-80"
               >
-                I design and develop software that transforms ideas into intuitive, high performance digital experiences.
+                I build softwares that delivers high performance digital experiences.
               </motion.p> 
             </div>
             {/* Context nav (desktop only) + Socials */}
