@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import { motion } from "framer-motion";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Github, Instagram, InstagramIcon, Linkedin, Mail, TwitterIcon, XIcon } from "lucide-react";
@@ -21,24 +20,55 @@ type Project = {
 };
 
 
-
 const projects = [
   {
-    title: "Flutter Whats UI",
-    img: "/assets/flutter_whats_ui.mp4",
-    summary: "A WhatsApp inspired messaging UI built with Flutter. Showcases clean responsive layouts, reusable widgets and real world chat interface design. ",
-    details: `This project is a WhatsApp inspired chat interface built using Flutter. it demonstrates my ability to design and implement real world mobile app UIs with clean layouts, reusable components and responsive design`,
-    techStack: ["Flutter", "Dart"],
-  },
-  {
-    title: "Flutter Chirp App",
+    title: "Chirp APP • Cross-Platform Social Platform",
     img: "/assets/chirp.mp4",
-    summary: "Chirp is social media platform a space to connect effortlessly with friends and communities. it demonstrates my ability to design and implement real world mobile app",
-    details: `A space to connect effortlessly with friends and communities. 
-              Browse a dynamic feed, share and refine ideas, 
-              join conversations and chat in real time all in a clean, 
-              fast and intuitive app built with flutter.`,
-    techStack: ["Flutter", "Dart", "Firebase"],
+    summary:
+      "A production inspired social platform engineered for web and mobile, featuring real-time interactions, authentication, media sharing, and scalable cloud architecture.",
+
+    details: `
+Chirp is a full-stack social networking platform built to simulate the architecture and engineering challenges of a modern production application.
+
+The platform supports secure authentication, real-time feeds, media uploads, user profiles, comments, likes, notifications, and short-form content while maintaining a responsive experience across mobile and web.
+
+The project emphasizes clean architecture, reusable UI systems, efficient state management, scalable Firebase services, and a backend-first approach to application design. It demonstrates my ability to build complex software systems that balance performance, maintainability, and user experience.
+
+Designed as more than a Flutter application, Chirp showcases full-stack engineering principles, cloud integration, and modern frontend development practices suitable for production environments.
+    `,
+
+    techStack: [
+      "Flutter",
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "MySQL",
+      "Tailwind CSS",
+    ],
+  },
+
+  {
+    title: "Flutter WhatsApp UI • Scalable Messaging Interface",
+    img: "/assets/flutter_whats_ui.mp4",
+
+    summary:
+      "A production grade messaging interface focused on scalable UI architecture, reusable components, and responsive cross-platform design.",
+
+    details: `
+A pixel-accurate recreation of a modern messaging application built to explore scalable Flutter UI architecture and reusable design systems.
+
+The project focuses on component composition, custom widgets, adaptive layouts, smooth animations, and responsive interfaces while maintaining clean code organization.
+
+Rather than simply recreating a design, the application demonstrates engineering practices for building maintainable mobile interfaces capable of supporting large applications through reusable components and consistent design patterns.
+
+This project reflects my approach to frontend engineering prioritizing architecture, developer experience, and long-term maintainability alongside polished user interfaces.
+    `,
+
+    techStack: [
+      "NextJS",
+      "Flutter",
+      "Dart",
+    ],
   },
 ];
 
@@ -59,72 +89,73 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
-    role: "Software Developer",
-    place: "QuickPost",
-    year: "2025",
+    role: "Software Engineer",
+    place: "Softray Technologies",
+    year: "2026 – Present",
     points: [
-      "Designed and developed a social media app with login, feed, and Firebase integration.",
-      "Implemented real-time features such as likes, comments, and notifications.",
-      "Focused on scalable architecture and clean UI inspired by WhatsApp/Twitter.",
+      "Architected multi-agent AI workflows for autonomous software development.",
+      "Built shared contextual memory with Obsidian and MCP.",
+      "Reduced AI-assisted development time by up to 80%.",
     ],
-    tech: ["React", "Tailwind", "Firebase"],
-  },
-    {
-    role: "Backend Developer",
-    place: "Softray Industries",
-    year: "2025",
-    points: [
-      "Designed and developed a social media app with login, feed, and Firebase integration.",
-      "Implemented real-time features such as likes, comments, and notifications.",
-      "Focused on scalable architecture and clean UI inspired by WhatsApp/Twitter.",
+    tech: [
+      "Python",
+      "NestJS",
+      "Node.js",
+      "Next.js",
+      "Obsidian",
+      "MCP",
     ],
-    tech: ["React", "Tailwind", "Firebase"],
   },
+
   {
-    role: "Agentic Loop Engineer",
-    place: "Apple Inc.",
+    role: "Backend Developer",
+    place: "Softray Technologies",
     year: "2025",
     points: [
-      "Designed a AI agent loop system by braking down complex problems into smaller, manageable steps.",
-      "Harvesting multiple agents to solve complex problems and tasks in ... and review loop",
-      "managing the agent in a singular shared context awareness in an obsidian vault which enables them to do and perform tasks grater than the sum of it parts",
-      "This cut down the development time with AI by 80% saying a app can be built compiled and shipped with MCP servers if the Agentic loop Engineer loop system design is regorous enough, one man is enough for the job",
-      "check out my article on Agentic loop engineering"
+      "Engineered secure backend services for a financial platform.",
+      "Led migration from Firebase to a scalable backend architecture.",
+      "Implemented authentication, encryption, and high-performance APIs.",
     ],
-    tech: ["Obsidian", "NestJS", "Python", "NodeJS", "NextJS", "TailwindCSS"],
+    tech: [
+      "NestJS",
+      "Node.js",
+      "MySQL",
+      "Firebase",
+    ],
   },
+
+  {
+    role: "Software Engineer",
+    place: "QuickPost",
+    year: "2024",
+    points: [
+      "Built a real-time social platform for web and mobile.",
+      "Implemented feeds, messaging, authentication, and media sharing.",
+      "Designed reusable UI systems and scalable architecture.",
+    ],
+    tech: [
+      "Flutter",
+      "Next.js",
+      "Firebase",
+      "Tailwind CSS",
+    ],
+  },
+
   {
     role: "Python Developer",
     place: "Media Automation Tools",
     year: "2024",
     points: [
-      "Built video/audio processing scripts using FFmpeg for editing, cutting, and batch conversion.",
-      "Automated workflows for creators, improving efficiency by 60%.",
-      "Packaged tools into desktop-friendly scripts for ease of use.",
+      "Developed high-performance media processing APIs.",
+      "Automated large-scale FFmpeg production workflows.",
+      "Built reusable command-line automation tools.",
     ],
-    tech: ["Python", "FFmpeg"],
-  },
-  {
-    role: "JavaScript Developer",
-    place: "Interactive Portfolio Projects",
-    year: "2023 – 2025",
-    points: [
-      "Developed multiple interactive web apps with modern UI patterns.",
-      "Built with React + Tailwind for clean, responsive designs.",
-      "Explored component-driven architecture for scalable frontends.",
+    tech: [
+      "Python",
+      "Django",
+      "FFmpeg",
+      "Bash",
     ],
-    tech: ["JavaScript", "React", "TailwindCSS"],
-  },
-  {
-    role: "Self-Directed Developer",
-    place: "Ongoing",
-    year: "2022 – Present",
-    points: [
-      "Invested in structured self-learning with multiple projects in JS, Python, and Flutter.",
-      "Documented progress with builds, experiments, and personal challenges.",
-      "Developed strong skills in problem-solving and debugging independently.",
-    ],
-    tech: ["JS", "Python", "Flutter"],
   },
 ];
 
@@ -248,7 +279,7 @@ export default function PortfolioLanding() {
                 <a href="https://github.com/teliej" className="hover:text-purple-400 transition-colors">
                   <Github size={22} />
                 </a>
-                <a href="#" className="hover:text-purple-400 transition-colors">
+                <a href="https://www.linkedin.com/in/johnson-adebayo-236873226" className="hover:text-purple-400 transition-colors">
                   <Linkedin size={22} />
                 </a>
                 <a href="teliej52@gmail.com" className="hover:text-purple-400 transition-colors">
@@ -393,178 +424,19 @@ export default function PortfolioLanding() {
     </motion.div>
   </div>
 
-
-
-
-
-
-
-
             </div>
           </section>
 
-         
+
+
 
     <section
-      data-section="Projects"
-      className="bg-gray-900 max-w-6xl mx-auto py-8 px-6"
-    >
-      <h2 className="text-3xl font-bold mb-12 text-gray-300 text-center">
-        Ongoing Projects
-      </h2>
-
-      <div className="space-y-1">
-        {projects.map((project, index) => (
-          <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`flex flex-row ${
-                index % 2 === 1 ? "flex-row-reverse" : ""
-              } items-center gap-4`}
-            >
-
-
-            <div className="relative mx-auto w-[40%] md:w-[30%] max-w-[250px] aspect-[9/19.5] bg-gray-900 rounded-[1rem] border-[4px] border-gray-800 shadow-[0_20px_50px_rgba(0,0,0,0.7)] overflow-hidden">
-
-
-              {/* Punch Hole Camera */}
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-black rounded-full z-20"></div>
-
-              {/* Screen Area */}
-              <div className="absolute inset-0 bg-black flex items-center justify-center">
-                {/* Image */}
-
-                <video
-                  src={project.img}
-                  preload="metadata"
-                  autoPlay
-                  loop
-                  muted
-                  aria-hidden
-                  className="w-full shadow-lg"
-                /> 
-                {/* <p className="text-white font-semibold text-lg">App Preview</p> */}
-              </div>
-            </div>
-
-
-
-
-            {/* Card */}
-            <div className="w-1/2 backdrop-blur-xl bg-white/10 border border-white/20 
-                    rounded-xl p-4 shadow-lg">
-              <div className="text-start">
-                <h3 className="text-[clamp(1rem,2vw,1.5rem)] font-semibold text-gray-200 mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-[clamp(0.8rem,1.5vw,1rem)] text-gray-400 mb-4">
-                  {project.summary}
-                </p>
-                <button
-                  onClick={() => setActiveProject(project)}
-                  className="px-4 py-2 hover:bg-purple-300 
-                            rounded-lg border-[2px] border-gray-500 text-gray-300 font-medium text-[clamp(0.8rem,1.5vw,1rem)]"
-                >
-                  Read More
-                </button>
-              </div>
-            </div>
-          {/* </div> */}
-        </motion.div>
-        ))}
-      </div>
-
-
-      {/* Modal */}
-      <AnimatePresence>
-        {activeProject && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            {/* Backdrop */}
-            <motion.div
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-              onClick={() => setActiveProject(null)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            />
-
-            {/* Modal Content */}
-            <motion.div
-              className="relative bg-gray-900 rounded-2xl shadow-2xl 
-                         max-w-2xl w-full mx-4 p-8 overflow-y-auto max-h-[80vh]"
-              initial={{ opacity: 0, scale: 0.9, y: 50 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 50 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setActiveProject(null)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white"
-              >
-                ✕
-              </button>
-
-              {/* Modal Body */}
-              <h2 className="text-2xl font-bold text-purple-400 mb-4">
-                {activeProject.title}
-              </h2>
-              <img
-                src={activeProject.img}
-                alt={activeProject.title}
-                className="rounded-lg mb-6"
-              />
-              <p className="text-gray-300 leading-relaxed mb-4">
-                {activeProject.details}
-              </p>
-              <ul className="flex flex-wrap gap-2 mb-6">
-                {activeProject.techStack.map((tech) => (
-                  <li
-                    key={tech}
-                    className="px-3 py-1 bg-purple-500/20 text-purple-300 
-                               rounded-full text-xs font-medium"
-                  >
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                onClick={() => setActiveProject(null)}
-                className="px-4 py-2 bg-purple-500 hover:bg-purple-600 
-                           rounded-lg text-white font-medium"
-              >
-                Close
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </section>
-
-
-
-
-
-
-
-
-
-<section
       data-section="Experience"
       className="bg-gray-900 py-4 px-2"
     >
-      {/* <h2 className="text-3xl font-bold text-center mb-12 text-purple-400">
+      <h2 className="text-3xl font-bold text-left ml-4 mb-12 text-gray-300">
         Experience
-      </h2> */}
+      </h2>
       <div className="relative mx-auto">
 
         <div className="space-y-4">
@@ -613,14 +485,142 @@ export default function PortfolioLanding() {
             transition={{ delay: 0.6 }}
             className="flex items-center gap-2 text-xl md:text-xl font-semibold text-gray-400 py-4 px-4 max-w-md"
           >
-            {/* <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors"> */}
-            View Full Resume
+            <a href="/Johnson_Adebayo_Resume.pdf" download className="hover:text-purple-400 transition-colors">
+            View Full Resume </a>
             <ArrowUpRight size={24} />
           </motion.h2>
 
         </div>
       </div>
     </section>
+
+
+
+
+    <section
+      data-section="Projects"
+      className="bg-gray-900 max-w-6xl mx-auto py-8 px-4"
+    >
+      <h2 className="text-3xl font-bold mb-8 text-gray-300 text-center">
+        Projects Preview
+      </h2>
+      <h3 className="text-1xl mb-8 text-gray-300"
+      >An overview of previous old projects, click to view details</h3>
+
+      <div className="space-y-1 flex flex-rol space-x-2">
+        {projects.map((project, index) => (
+          <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              onClick={() => setActiveProject(project)}
+              className={`w-1/2`}
+            >
+
+            
+            <div className="relative mx-auto w-[100%] md:w-[80%] aspect-[9/19.5] bg-gray-900 rounded-[1rem] border-[4px] border-gray-800 shadow-[0_20px_50px_rgba(0,0,0,0.7)] overflow-hidden">
+
+
+              {/* Punch Hole Camera */}
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-black rounded-full z-20"></div>
+
+              {/* Screen Area */}
+              <div className="absolute inset-0 bg-black flex items-center justify-center">
+                {/* Image */}
+
+                <video
+                  src={project.img}
+                  preload="metadata"
+                  autoPlay
+                  loop
+                  muted
+                  aria-hidden
+                  className="w-full shadow-lg"
+                /> 
+                {/* <p className="text-white font-semibold text-lg">App Preview</p> */}
+              </div>
+            </div>
+        </motion.div>
+        ))}
+      </div>
+
+
+      {/* Modal */}
+      <AnimatePresence>
+        {activeProject && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* Backdrop */}
+            <motion.div
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              onClick={() => setActiveProject(null)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+
+            {/* Modal Content */}
+            <motion.div
+              className="relative bg-gray-900 rounded-2xl shadow-2xl 
+                         max-w-2xl w-full mx-4 p-8 overflow-y-auto max-h-[80vh]"
+              initial={{ opacity: 0, scale: 0.9, y: 50 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 50 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setActiveProject(null)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white"
+              >
+                ✕
+              </button>
+
+              {/* Modal Body */}
+              <h2 className="text-2xl font-bold text-purple-400 mb-4">
+                {activeProject.title}
+              </h2>
+              <img
+                src={activeProject.img}
+                alt={activeProject.summary}
+                className="rounded-lg text-gray-300 mb-6"
+              />
+              <p className="text-gray-300 leading-relaxed mb-4">
+                {activeProject.details}
+              </p>
+              <ul className="flex flex-wrap gap-2 mb-6">
+                {activeProject.techStack.map((tech) => (
+                  <li
+                    key={tech}
+                    className="px-3 py-1 bg-purple-500/20 text-purple-300 
+                               rounded-full text-xs font-medium"
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+
+              <button
+                onClick={() => setActiveProject(null)}
+                className="px-4 py-2 bg-purple-500 hover:bg-purple-600 
+                           rounded-lg text-white font-medium"
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+
+
+
 
 
 
@@ -662,7 +662,7 @@ export default function PortfolioLanding() {
 
             <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
               <SiNextdotjs className="text-white text-5xl" />
-              <span className="font-medium text-gray-400">Next.js</span>
+              <span className="font-medium text-gray-400">NextJS</span>
             </div>
           </div>
         </div>
@@ -684,7 +684,7 @@ export default function PortfolioLanding() {
             {/* Node.js */}
             <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
               <SiNodedotjs className="h-12 w-12 text-white" />
-              <span className="font-medium text-gray-400">Node.js</span>
+              <span className="font-medium text-gray-400">NodeJS</span>
             </div>
 
             {/* Django */}
@@ -708,7 +708,7 @@ export default function PortfolioLanding() {
             {/* Nestjs */}
             <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
               <SiNestjs className="h-12 w-12 text-white" />
-              <span className="font-medium text-gray-400">Nest.js</span>
+              <span className="font-medium text-gray-400">NestJS</span>
             </div>
 
             {/* Firebase */}
@@ -883,29 +883,3 @@ export default function PortfolioLanding() {
     </div>
   );
 }
-
-
-
-
-
-
-
-// // what comes to mind when you wanted a page for your business, product or whatever 
-// // is make it look good, well branded, proffesional, look legit 
-// // but then you seem to forget that while those things
-// // does help your brand it not enough, 
-
-// // these requirement are the norms of today, they are mediocre, 
-// // everybody do this, 
-// // most page looks good well branded, proffesional 
-// // however this is not enough to secure sales.
-
-// // imaging the hassle of getting some leads then the total waist when leads bounce off your page
-
-// // your leads intrest are like fagrance, once a spack of intrest has been lit it dies quickly, 
-// // this means your product page must be ready to keep the spack lit
-
-// // your product page must be built for this
-// // your product page needs to be smarter more adaptive, carefully crafted, built right
-
-// // let me explain => feauture of the pages.
