@@ -850,7 +850,7 @@ export default function PortfolioLanding() {
 
                 {/* LinkedIn */}
                 <a
-                  href="https://linkedin.com/in/your-link"
+                  href="https://www.linkedin.com/in/johnson-adebayo-236873226"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full md:w-auto flex items-center justify-center gap-3 bg-blue-900 hover:bg-blue-600 text-white px-6 py-4 rounded-xl shadow-sm transition-all duration-200 ease-in-out transform hover:-translate-y-1"
