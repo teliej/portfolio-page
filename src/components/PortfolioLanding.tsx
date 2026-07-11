@@ -586,11 +586,9 @@ export default function PortfolioLanding() {
               <h2 className="text-2xl font-bold text-purple-400 mb-4">
                 {activeProject.title}
               </h2>
-              <img
-                src={activeProject.img}
-                alt={activeProject.summary}
-                className="rounded-lg text-gray-300 mb-6"
-              />
+              <h3 className="text-gray-300 mb-6">
+                {activeProject.summary}
+              </h3>
               <p className="text-gray-300 leading-relaxed mb-4">
                 {activeProject.details}
               </p>
