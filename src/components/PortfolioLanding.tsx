@@ -1,973 +1,3 @@
-// import React, { useState, useRef, useEffect } from "react";
-// import { motion, useAnimation, useScroll, useTransform, useSpring, useReducedMotion } from "framer-motion";
-
-
-// export default function AuraPage() {
-//     const shouldReduceMotion = useReducedMotion();
-//     const { scrollYProgress } = useScroll();
-
-//     // colorTemp: transitions from cool morning to warm evening as you scroll
-//     const colorTemp = useTransform(
-//       scrollYProgress,
-//       [0, 0.5, 1],
-//       ["#E6F7FF", "#EDE7FF", "#FFF4E6"] // pale blue -> lavender -> warm pearl
-//     );
-
-//     // orb scale + opacity reacts to scroll; smoothed by spring
-//     const orbScaleRaw = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1.15, 0.95]);
-//     const orbOpacityRaw = useTransform(scrollYProgress, [0, 0.5, 1], [0.18, 0.36, 0.18]);
-//     const orbScale = useSpring(orbScaleRaw, { stiffness: 80, damping: 20 });
-//     const orbOpacity = useSpring(orbOpacityRaw, { stiffness: 80, damping: 25 });
-
-//     // subtle vertical float on the diffuser
-//     const floatY = shouldReduceMotion ? 0 : [0, -8, 0];
-
-
-
-
-
-
-
-
-
-
-//   type Mood = "dawn" | "forest" | "amber";
-//   const [mood, setMood] = useState<Mood>("dawn");
-//   // const { scrollYProgress } = useScroll();
-
-//   // Map scroll to hue rotation (0deg to 120deg)
-//   const hueShift = useTransform(scrollYProgress, [0, 1], [0, 120]);
-
-//   // Define palette tones for each mood
-//   const moodStyles = {
-//     dawn: {
-//       title: "Where Morning Breathes Calm.",
-//       orb: "from-blue-400/20 to-cyan-300/20",
-//       glow: "bg-blue-300/20",
-//       hue: 0,
-//     },
-//     forest: {
-//       title: "A Whisper from the Green Within.",
-//       orb: "from-emerald-400/20 to-lime-300/20",
-//       glow: "bg-green-400/20",
-//       hue: 90,
-//     },
-//     amber: {
-//       title: "Warmth that Learns Your Mood.",
-//       orb: "from-amber-400/20 to-orange-300/20",
-//       glow: "bg-amber-300/20",
-//       hue: 45,
-//     },
-//   };
-
-//   const active = moodStyles[mood];
-
-//   // Dynamic hue rotation (scroll + user mood)
-//   const [scrollHue, setScrollHue] = useState(0);
-//   useEffect(() => {
-//     const unsubscribe = hueShift.on("change", (v) => setScrollHue(v));
-//     return () => unsubscribe();
-//   }, [hueShift]);
-
-//   const finalHue = scrollHue + active.hue;
-
-
-
-
-
-
-
-
-
-
-
-//   const videoRef = useRef<HTMLVideoElement>(null);
-//   const controls = useAnimation();
-
-//   useEffect(() => {
-//     // Fade in–out continuously for a natural mist breathing feel
-//     controls.start({
-//       opacity: 1,
-//       transition: {
-//         duration: 8, // total loop time
-//         ease: "easeIn",
-//       },
-//     });
-//   }, [controls]);
-
-
-
-
-
-//   const imageControls = useAnimation();
-//   const [highlightIndex, setHighlightIndex] = useState(-1);
-//   const words = ["This", "animation"];
-
-//   useEffect(() => {
-//     const runAnimation = async () => {
-//       // 1️⃣ Animate image: grow → shrink
-//       await imageControls.start({
-//         scale: [1, 1.3, 1],
-//         transition: { duration: 2, delay: 5, ease: "easeInOut" },
-//       });
-
-//       // 2️⃣ Highlight words one after another
-//       for (let i = 0; i < words.length; i++) {
-//         setHighlightIndex(i);
-//         await new Promise((r) => setTimeout(r, 5000));
-//       }
-//     };
-
-//     runAnimation();
-//   }, []);
-
-
-
-
-//   return (
-//     <motion.div
-//       className="min-h-screen w-full overflow-hidden text-white font-sans transition-all duration-700"
-//       style={{ filter: `hue-rotate(${finalHue}deg)` }}
-//     >
-//       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-//       </link>
-
-
-
-//       {/* Hero Section */}
-//       <section
-//         aria-label="AURA hero - smart scent diffuser"
-//         className="relative overflow-hidden bg-gradient-to-b from-[rgba(245,247,250,1)] to-[rgba(14,19,22,1)] min-h-[88vh] grid grid-cols-1 lg:grid-cols-2 items-center px-6 sm:px-12 lg:px-24 py-16"
-//         style={{ backgroundColor: undefined }}
-//       >
-//         {/* Mist / ambient background (video) */}
-//         <motion.video
-//           ref={videoRef}
-//           className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen"
-//           src="./src/assets/mist.mp4" // light mist clip (replaceable)
-//           preload="metadata"
-//           initial={{ opacity: 0 }}
-//           animate={controls}
-//           autoPlay
-//           loop
-//           muted
-//           playsInline
-//           aria-hidden
-//         />
-//         {/* Mist / ambient background (video) */}
-//         {/* <motion.video
-//           ref={videoRef}
-//           className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen"
-//           src="./src/assets/mist2.mp4" // light mist clip (replaceable)
-//           preload="metadata"
-//           initial={{ opacity: 0 }}
-//           animate={controls}
-//           autoPlay
-//           loop
-//           muted
-//           playsInline
-//           aria-hidden
-//         /> */}
-
-//         {/* ambient color overlay that shifts with scroll */}
-//         <motion.div
-//           style={{ background: colorTemp, mixBlendMode: "overlay", opacity: 0.35 }}
-//           className="pointer-events-none absolute inset-0"
-//           aria-hidden
-//         />
-
-//         {/* Slow expanding orbs (represent diffusion) */}
-//         <motion.span
-//           style={{ scale: orbScale, opacity: orbOpacity }}
-//           className="pointer-events-none absolute left-10 top-20 w-72 h-72 rounded-full bg-[rgba(166,226,204,0.16)] blur-[80px] transform-gpu"
-//           aria-hidden
-//           animate={shouldReduceMotion ? undefined : { rotate: [0, 12, 0] }}
-//           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-//         />
-//         <motion.span
-//           style={{ scale: orbScale, opacity: orbOpacity }}
-//           className="pointer-events-none absolute right-10 bottom-16 w-96 h-96 rounded-full bg-[rgba(237,222,255,0.12)] blur-[110px] transform-gpu"
-//           aria-hidden
-//           animate={shouldReduceMotion ? undefined : { rotate: [0, -10, 0] }}
-//           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-//         />
-
-//         {/* Left / Top: copy (center on mobile) */}
-//         <div className="relative      z-10 px-2 sm:px-6 py-6 lg:py-6 lg:pr-12">
-//           {/* bg-white/20 backdrop-blur-6xl border border-white/40 shadow-xl rounded-xl */}
-//           <motion.h1
-//             className="font-playfair text-4xl sm:text-[3.2rem] md:text-[3.8rem] leading-tight text-slate-900 dark:text-white"
-//             initial={{ opacity: 0, y: 20 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             viewport={{ once: true }}
-//             transition={{ duration: 1.2 }}
-//             style={{ WebkitFontSmoothing: "antialiased" }}
-//           >
-//             <span className="block text-[2.1rem] sm:text-[2.5rem] md:text-[3rem] text-slate-700 dark:text-slate-100">AURA</span>
-//             <span className="block mt-2 text-2xl sm:text-3xl font-light text-slate-600 dark:text-slate-200">
-//               The air that learns you.
-//             </span>
-//           </motion.h1>
-
-//           <motion.p
-//             contentEditable
-//             suppressContentEditableWarning
-//             className="mt-6 max-w-lg text-base sm:text-lg text-slate-700 dark:text-slate-300"
-//             initial={{ opacity: 0, y: 18 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             viewport={{ once: true }}
-//             transition={{ delay: 0.15, duration: 1.1 }}
-//           >
-//             AURA
-//             <span
-//               key={0}
-//               className={`mx-1 transition-colors duration-300 ${
-//                 0 === highlightIndex ? "text-yellow-400" : "text-gray-400"
-//               }`}
-//             > man </span>
-//             adapts to how your space moves — a living diffuser that reads moments and translates them into calm. Not just fragrance, but presence: subtle, intelligent, and always gentle.
-//             <span
-//               key={1}
-//               className={`mx-1 transition-colors duration-300 ${
-//                 1 === highlightIndex ? "text-yellow-400" : "text-gray-400"
-//               }`}
-//             > woman </span>
-//           </motion.p>
-
-//           <motion.div
-//             className="mt-8 flex items-center gap-4"
-//             initial={{ opacity: 0, y: 12 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             viewport={{ once: true }}
-//             transition={{ delay: 0.25, duration: 1.1 }}
-//           >
-//             <button
-//               className="rounded-full px-6 py-3 bg-white/90 text-slate-800 font-semibold shadow-md backdrop-blur-sm hover:scale-[1.02] transition-transform"
-//               aria-label="Breathe the Future"
-//               style={{ WebkitTapHighlightColor: "transparent" }}
-//             >
-//               Breathe the Future
-//             </button>
-
-//             <a
-//               className="text-sm text-slate-600 font-semibold hover:underline hidden sm:inline-block"
-//               href="#learn"
-//               aria-label="Learn more about Aura"
-//             >
-//               Learn how it listens →
-//             </a>
-//           </motion.div>
-
-//           {/* micro copy / craft line */}
-//           <motion.div
-//             className="mt-6 text-xs text-slate-700 font-bold max-w-sm"
-//             initial={{ opacity: 0 }}
-//             whileInView={{ opacity: 1 }}
-//             viewport={{ once: true }}
-//             transition={{ delay: 0.4 }}
-//           >
-//             Crafted from recycled aluminum & ceramic. Low-energy diffusion. Hand-tuned scent profiles sourced ethically.
-//           </motion.div>
-//         </div>
-
-//         {/* Right / Bottom: diffuser visual */}
-//         <div className="relative z-10 flex justify-center lg:justify-end items-center px-4 py-6">
-//           <motion.div
-//             className="relative w-[18rem] sm:w-[22rem] md:w-[26rem] lg:w-[30rem] flex justify-center"
-//             initial={{ opacity: 0, y: 18 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             viewport={{ once: true }}
-//             transition={{ delay: 0.4, duration: 1.2 }}
-//             aria-hidden={false}
-//           >
-//             {/* floating device */}
-//             <motion.img
-//               src="./src/assets/product.png"
-//               alt="AURA diffuser"
-//               className="w-[15rem] object-fit"
-//               animate={shouldReduceMotion ? undefined : { y: floatY }}
-//               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-//               loading="lazy"
-//             />
-
-//             {/* faint mist overlay (absolute, centered), low opacity for subtlety */}
-//             <motion.img
-//               src="https://assets.codepen.io/3/mist-small.webp" /* lightweight looped mist gif/webp - replace with shorter loop if needed */
-//               alt=""
-//               aria-hidden
-//               className="pointer-events-none absolute inset-0 w-full object-cover opacity-30 mix-blend-screen rounded-2xl"
-//               initial={{ opacity: 0 }}
-//               whileInView={{ opacity: 0.28 }}
-//               transition={{ delay: 0.6, duration: 1.8 }}
-//               loading="lazy"
-//             />
-//           </motion.div>
-//         </div>
-//       </section>
-
-
-
-
-
-
-
-//       {/* Mood Selection Section */}
-//       <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 sm:px-10 py-20">
-//         {/* Ambient orbs */}
-//         <div className="absolute inset-0 -z-10">
-//           <div className={`absolute top-20 left-1/4 w-64 h-64 bg-gradient-to-br ${active.orb} blur-[140px] rounded-full`} />
-//           <div className={`absolute bottom-20 right-1/4 w-72 h-72 bg-gradient-to-tr ${active.orb} blur-[160px] rounded-full`} />
-//         </div>
-
-//         {/* Mist Video */}
-//         <motion.video
-//           ref={videoRef}
-//           className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen"
-//           src="./src/assets/mist2.mp4" // light mist clip (replaceable)
-//           preload="metadata"
-//           initial={{ opacity: 0 }}
-//           animate={controls}
-//           autoPlay
-//           loop
-//           muted
-//           playsInline
-//           aria-hidden
-//         />
-
-//         {/* Title */}
-//         <motion.h1
-//           className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 drop-shadow-lg"
-//           initial={{ opacity: 0, y: 40 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 1 }}
-//         >
-//           AURA
-//         </motion.h1>
-
-//         <motion.p
-//           className="text-lg sm:text-2xl text-gray-300 max-w-2xl leading-relaxed"
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ delay: 0.4, duration: 1 }}
-//         >
-//           {active.title}
-//         </motion.p>
-
-//         {/* Product Image */}
-//         <motion.img
-//           src="https://images.unsplash.com/photo-1629810692598-1b16a1ff7177?auto=format&fit=crop&w=800&q=80"
-//           alt="AURA Smart Diffuser"
-//           className="w-64 sm:w-80 md:w-96 mt-10 drop-shadow-2xl"
-//           initial={{ opacity: 0, scale: 0.9 }}
-//           animate={{ opacity: 1, scale: 1 }}
-//           transition={{ delay: 0.6, duration: 1 }}
-//         />
-
-//         {/* Mood Picker */}
-//         <div className="flex gap-3 mt-12 bg-white/10 backdrop-blur-lg px-6 py-3 rounded-full">
-//           {[
-//             { id: "dawn", label: "Dawn Mist" },
-//             { id: "forest", label: "Forest Whisper" },
-//             { id: "amber", label: "Amber Flow" },
-//           ].map((opt) => (
-//             <button
-//               key={opt.id}
-//               onClick={() => setMood(opt.id as Mood)}
-//               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-//                 mood === opt.id
-//                   ? "bg-white text-black"
-//                   : "text-gray-300 hover:text-white"
-//               }`}
-//             >
-//               {opt.label}
-//             </button>
-//           ))}
-//         </div>
-//       </section>
-
-//       {/* Mood Learner Section */}
-//       <section className="relative py-24 px-6 sm:px-12 md:px-20 text-center">
-//         <motion.h2
-//           className="text-3xl sm:text-5xl font-bold mb-8"
-//           initial={{ opacity: 0, y: 30 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 1 }}
-//           viewport={{ once: true }}
-//         >
-//           The Mood Learner
-//         </motion.h2>
-
-//         <p className="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto mb-16">
-//           Scent that senses you — adapting to your rhythm, your moments, and your calm.
-//         </p>
-
-//         {/* Features */}
-//         <div className="grid md:grid-cols-3 gap-12">
-//           {[
-//             {
-//               icon: "🌬️",
-//               title: "Breath Sync",
-//               text: "Adjusts scent flow to the rhythm of your environment.",
-//             },
-//             {
-//               icon: "☀️",
-//               title: "Circadian Blend",
-//               text: "Tunes itself to time of day — refreshing or relaxing as needed.",
-//             },
-//             {
-//               icon: "🔊",
-//               title: "Emotive Echo",
-//               text: "Reads ambient sound and activity, reacting subtly in aroma.",
-//             },
-//           ].map((f, i) => (
-//             <motion.div
-//               key={i}
-//               className="bg-white/5 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:bg-white/10 transition"
-//               initial={{ opacity: 0, y: 40 }}
-//               whileInView={{ opacity: 1, y: 0 }}
-//               transition={{ delay: i * 0.2, duration: 0.8 }}
-//               viewport={{ once: true }}
-//             >
-//               <div className="text-4xl mb-4">{f.icon}</div>
-//               <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
-//               <p className="text-gray-400">{f.text}</p>
-//             </motion.div>
-//           ))}
-//         </div>
-
-//         {/* Background mist blur */}
-//         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-white/5 blur-[180px] rounded-full -z-10" />
-//       </section>
-//     </motion.div>
-//   );
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from "react";
-// import { motion, useScroll, useTransform, useSpring, useReducedMotion } from "framer-motion";
-
-// /**
-//  * AURA Hero — poetic, organic, adaptive.
-//  * - responsive layout (stack on mobile, split on desktop)
-//  * - mist video background (lightweight loop)
-//  * - scroll-driven color temperature and orb breathing
-//  * - respects prefers-reduced-motion
-//  */
-
-// export default function AuraHero(): JSX.Element {
-//   const shouldReduceMotion = useReducedMotion();
-//   const { scrollYProgress } = useScroll();
-
-//   // colorTemp: transitions from cool morning to warm evening as you scroll
-//   const colorTemp = useTransform(
-//     scrollYProgress,
-//     [0, 0.5, 1],
-//     ["#E6F7FF", "#EDE7FF", "#FFF4E6"] // pale blue -> lavender -> warm pearl
-//   );
-
-//   // orb scale + opacity reacts to scroll; smoothed by spring
-//   const orbScaleRaw = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1.15, 0.95]);
-//   const orbOpacityRaw = useTransform(scrollYProgress, [0, 0.5, 1], [0.18, 0.36, 0.18]);
-//   const orbScale = useSpring(orbScaleRaw, { stiffness: 80, damping: 20 });
-//   const orbOpacity = useSpring(orbOpacityRaw, { stiffness: 80, damping: 25 });
-
-//   // subtle vertical float on the diffuser
-//   const floatY = shouldReduceMotion ? 0 : [0, -8, 0];
-
-//   return (
-//     <section
-//       aria-label="AURA hero - smart scent diffuser"
-//       className="relative overflow-hidden bg-gradient-to-b from-[rgba(245,247,250,1)] to-[rgba(14,19,22,1)] min-h-[88vh] grid grid-cols-1 lg:grid-cols-2 items-center px-6 sm:px-12 lg:px-24 py-16"
-//       style={{ backgroundColor: undefined }}
-//     >
-//       {/* Mist / ambient background (video) */}
-//       <video
-//         className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen"
-//         src="https://cdn.pixabay.com/video/2022/12/16/142469-783735732_large.mp4" // light mist clip (replaceable)
-//         autoPlay
-//         loop
-//         muted
-//         playsInline
-//         aria-hidden
-//       />
-
-//       {/* ambient color overlay that shifts with scroll */}
-//       <motion.div
-//         style={{ background: colorTemp, mixBlendMode: "overlay", opacity: 0.35 }}
-//         className="pointer-events-none absolute inset-0"
-//         aria-hidden
-//       />
-
-//       {/* Slow expanding orbs (represent diffusion) */}
-//       <motion.span
-//         style={{ scale: orbScale, opacity: orbOpacity }}
-//         className="pointer-events-none absolute left-10 top-20 w-72 h-72 rounded-full bg-[rgba(166,226,204,0.16)] blur-[80px] transform-gpu"
-//         aria-hidden
-//         animate={shouldReduceMotion ? undefined : { rotate: [0, 12, 0] }}
-//         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-//       />
-//       <motion.span
-//         style={{ scale: orbScale, opacity: orbOpacity }}
-//         className="pointer-events-none absolute right-10 bottom-16 w-96 h-96 rounded-full bg-[rgba(237,222,255,0.12)] blur-[110px] transform-gpu"
-//         aria-hidden
-//         animate={shouldReduceMotion ? undefined : { rotate: [0, -10, 0] }}
-//         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-//       />
-
-//       {/* Left / Top: copy (center on mobile) */}
-//       <div className="relative z-10 px-2 sm:px-6 py-6 lg:py-0 lg:pr-12">
-//         <motion.h1
-//           className="font-playfair text-4xl sm:text-[3.2rem] md:text-[3.8rem] leading-tight text-slate-900 dark:text-white"
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 1.2 }}
-//           style={{ WebkitFontSmoothing: "antialiased" }}
-//         >
-//           <span className="block text-[2.1rem] sm:text-[2.5rem] md:text-[3rem] text-slate-700 dark:text-slate-100">AURA</span>
-//           <span className="block mt-2 text-2xl sm:text-3xl font-light text-slate-600 dark:text-slate-200">
-//             The air that learns you.
-//           </span>
-//         </motion.h1>
-
-//         <motion.p
-//           className="mt-6 max-w-lg text-base sm:text-lg text-slate-600 dark:text-slate-300"
-//           initial={{ opacity: 0, y: 18 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ delay: 0.15, duration: 1.1 }}
-//         >
-//           AURA adapts to how your space moves — a living diffuser that reads moments and translates them into calm. Not just fragrance, but presence: subtle, intelligent, and always gentle.
-//         </motion.p>
-
-//         <motion.div
-//           className="mt-8 flex items-center gap-4"
-//           initial={{ opacity: 0, y: 12 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ delay: 0.25, duration: 1.1 }}
-//         >
-//           <button
-//             className="rounded-full px-6 py-3 bg-white/90 text-slate-900 font-semibold shadow-md backdrop-blur-sm hover:scale-[1.02] transition-transform"
-//             aria-label="Breathe the Future"
-//             style={{ WebkitTapHighlightColor: "transparent" }}
-//           >
-//             Breathe the Future
-//           </button>
-
-//           <a
-//             className="text-sm text-slate-600 hover:underline hidden sm:inline-block"
-//             href="#learn"
-//             aria-label="Learn more about Aura"
-//           >
-//             Learn how it listens →
-//           </a>
-//         </motion.div>
-
-//         {/* micro copy / craft line */}
-//         <motion.div
-//           className="mt-6 text-xs text-slate-500 max-w-sm"
-//           initial={{ opacity: 0 }}
-//           whileInView={{ opacity: 1 }}
-//           viewport={{ once: true }}
-//           transition={{ delay: 0.4 }}
-//         >
-//           Crafted from recycled aluminum & ceramic. Low-energy diffusion. Hand-tuned scent profiles sourced ethically.
-//         </motion.div>
-//       </div>
-
-//       {/* Right / Bottom: diffuser visual */}
-//       <div className="relative z-10 flex justify-center lg:justify-end items-center px-4 py-6">
-//         <motion.div
-//           className="relative w-[18rem] sm:w-[22rem] md:w-[26rem] lg:w-[28rem] flex justify-center"
-//           initial={{ opacity: 0, y: 18 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ delay: 0.4, duration: 1.2 }}
-//           aria-hidden={false}
-//         >
-//           {/* floating device */}
-//           <motion.img
-//             src="https://images.unsplash.com/photo-1600185365483-26d7a4f10cf3?auto=format&fit=crop&w=900&q=80"
-//             alt="AURA diffuser mockup"
-//             className="w-full rounded-2xl shadow-2xl object-cover"
-//             animate={shouldReduceMotion ? undefined : { y: floatY }}
-//             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-//             loading="lazy"
-//           />
-
-//           {/* faint mist overlay (absolute, centered), low opacity for subtlety */}
-//           <motion.img
-//             src="https://assets.codepen.io/3/mist-small.webp" /* lightweight looped mist gif/webp - replace with shorter loop if needed */
-//             alt=""
-//             aria-hidden
-//             className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-screen rounded-2xl"
-//             initial={{ opacity: 0 }}
-//             whileInView={{ opacity: 0.28 }}
-//             transition={{ delay: 0.6, duration: 1.8 }}
-//             loading="lazy"
-//           />
-//         </motion.div>
-//       </div>
-//     </section>
-//   );
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from "react";
-// import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-
-// export default function PulseStoneHero() {
-//   // Track scroll progress (0 → 1)
-//   const { scrollYProgress } = useScroll();
-
-//   // Create reactive transforms based on scroll position
-//   const pulseOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 0.8, 0.3]);
-//   const pulseScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
-//   const springScale = useSpring(pulseScale, { stiffness: 120, damping: 20 });
-//   const springOpacity = useSpring(pulseOpacity, { stiffness: 120, damping: 25 });
-
-//   return (
-//     <section className="relative min-h-screen bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden grid grid-cols-1 md:grid-cols-2 items-center px-6 sm:px-10 md:px-20 py-16">
-//       {/* Left: Text Content */}
-//       <motion.div
-//         className="text-center md:text-left space-y-6 z-10"
-//         initial={{ opacity: 0, y: 40 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         transition={{ duration: 1 }}
-//       >
-//         <motion.h1
-//           className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight"
-//           initial={{ opacity: 0, y: 30 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ delay: 0.2, duration: 1 }}
-//         >
-//           A Stone That Breaths Bass.
-//         </motion.h1>
-
-//         <motion.p
-//           className="text-gray-400 text-lg sm:text-xl max-w-md mx-auto md:mx-0"
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ delay: 0.4, duration: 1 }}
-//         >
-//           Where silence ends, <span className="text-white font-medium">PulseStone</span> begins — engineered to sound alive.
-//         </motion.p>
-
-//         <motion.button
-//           className="px-8 py-3 bg-white text-black rounded-full font-semibold hover:bg-gray-300 transition"
-//           whileHover={{ scale: 1.05 }}
-//           whileTap={{ scale: 0.98 }}
-//           transition={{ type: "spring", duration: 0.05 }}
-//         >
-//           Experience the Pulse
-//         </motion.button>
-//       </motion.div>
-
-//       {/* Right: Product Visual */}
-//       <motion.div
-//         className="relative flex justify-center mt-12 md:mt-0"
-//         initial={{ opacity: 0, scale: 0.9 }}
-//         animate={{ opacity: 1, scale: 1 }}
-//         transition={{ delay: 0.6, duration: 1 }}
-//       >
-//         {/* Scroll-reactive glow */}
-//         <motion.div
-//           style={{ opacity: springOpacity, scale: springScale }}
-//           className="absolute w-64 h-64 sm:w-80 sm:h-80 bg-blue-500/30 blur-3xl rounded-full"
-//         />
-//         <motion.img
-//           src="./src/assets/unsplash.jpg"
-//           alt="PulseStone Mini Speaker"
-//           className="relative w-56 sm:w-72 md:w-[22rem] object-contain drop-shadow-2xl"
-//           whileHover={{ scale: 1.03, rotate: 1 }}
-//           transition={{ type: 'spring', stiffness: 200 }}
-//         />
-//       </motion.div>
-
-//       {/* Background Accent Glow */}
-//       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-//         <div className="absolute top-1/3 left-1/4 w-40 h-40 bg-blue-400/10 blur-[120px] rounded-full" />
-//         <div className="absolute bottom-10 right-1/3 w-60 h-60 bg-purple-500/10 blur-[150px] rounded-full" />
-//       </div>
-//     </section>
-//   );
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from "react";
-// import { motion } from "framer-motion";
-
-// export default function ProductPage() {
-//   const layers = [
-//     {
-//       title: "Top Note — Mint Frost",
-//       desc: "A sharp, clean burst of mint leaves and frozen citrus. Feels like a deep breath of icy air.",
-//       img: "https://picsum.photos/800/600",
-//     },
-//     {
-//       title: "Heart Note — Midnight Cedar",
-//       desc: "Smooth wood and crisp night air, balancing freshness with mystery.",
-//       img: "https://picsum.photos/800/600",
-//     },
-//     {
-//       title: "Base Note — Cold Musk",
-//       desc: "A lingering chill that feels both bold and quiet, leaving a trace of strength behind.",
-//       img: "https://picsum.photos/800/600",
-//     },
-//   ];
-
-//   return (
-//     <div className="bg-[#0a0a0a] text-gray-100 overflow-x-hidden">
-//       {/* Hero Section */}
-//       <section className="relative h-[100vh] flex flex-col justify-center items-center text-center p-6">
-//         <video
-//           className="absolute top-0 left-0 w-full h-full object-cover opacity-40"
-//           autoPlay
-//           loop
-//           muted
-//           playsInline
-//           src="https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4"
-//         />
-//         <div className="relative z-10 max-w-3xl">
-//           <motion.h1
-//             initial={{ opacity: 0, y: 40 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 1 }}
-//             className="text-5xl sm:text-7xl font-bold text-white tracking-tight"
-//           >
-//             Frost Noir
-//           </motion.h1>
-//           <motion.p
-//             initial={{ opacity: 0, y: 30 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 1.2 }}
-//             className="mt-4 text-lg sm:text-2xl text-gray-300"
-//           >
-//             Feel the chill of confidence — where mint meets midnight.
-//           </motion.p>
-//         </div>
-//       </section>
-
-//       {/* About Section */}
-//       <section className="py-20 px-6 sm:px-16 text-center bg-gradient-to-b from-[#0a0a0a] to-[#111]">
-//         <div className="max-w-4xl mx-auto">
-//           <motion.h2
-//             initial={{ opacity: 0, y: 40 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8 }}
-//             viewport={{ once: true }}
-//             className="text-3xl sm:text-5xl font-semibold text-white mb-8"
-//           >
-//             The Essence of Frost Noir
-//           </motion.h2>
-//           <motion.p
-//             initial={{ opacity: 0, y: 20 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 1 }}
-//             viewport={{ once: true }}
-//             className="text-gray-400 leading-relaxed text-lg sm:text-xl"
-//           >
-//             Frost Noir isn’t just a scent — it’s a sensation. Born from the collision of minty freshness and deep night air, it whispers strength, calm, and control. Designed for the man who stays cool under pressure and glows in silence.
-//           </motion.p>
-//         </div>
-//       </section>
-
-//       {/* Layers Section */}
-//       <section className="py-20 px-4 sm:px-10 bg-[#111]">
-//         <motion.h2
-//           initial={{ opacity: 0, y: 40 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//           viewport={{ once: true }}
-//           className="text-3xl sm:text-5xl font-semibold text-center text-white mb-12"
-//         >
-//           The Layers of Frost Noir
-//         </motion.h2>
-//         <div className="grid gap-10 md:grid-cols-3 max-w-6xl mx-auto">
-//           {layers.map((layer, i) => (
-//             <motion.div
-//               key={i}
-//               className="flex flex-col items-center text-center bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-//               initial={{ opacity: 0, y: 30 }}
-//               whileInView={{ opacity: 1, y: 0 }}
-//               transition={{ duration: 0.6, delay: i * 0.2 }}
-//               viewport={{ once: true }}
-//             >
-//               <img
-//                 src={layer.img}
-//                 alt={layer.title}
-//                 className="w-full h-56 object-cover"
-//                 loading="lazy"
-//               />
-//               <div className="p-6">
-//                 <h3 className="text-xl font-semibold text-white mb-3">{layer.title}</h3>
-//                 <p className="text-gray-400 text-base leading-relaxed">{layer.desc}</p>
-//               </div>
-//             </motion.div>
-//           ))}
-//         </div>
-//       </section>
-
-//       {/* Gallery Section */}
-//       <section className="py-20 bg-[#0d0d0d] px-6 sm:px-10">
-//         <motion.h2
-//           initial={{ opacity: 0, y: 40 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//           viewport={{ once: true }}
-//           className="text-3xl sm:text-5xl font-semibold text-center text-white mb-12"
-//         >
-//           The Frost Noir Experience
-//         </motion.h2>
-//         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-//           {["https://picsum.photos/800/600",
-//             "https://picsum.photos/800/600",
-//             "https://picsum.photos/800/600",
-//             "https://picsum.photos/800/600",
-//             "https://picsum.photos/800/600",
-//             "https://picsum.photos/800/600",
-//           ].map((img, i) => (
-//             <motion.img
-//               key={i}
-//               src={img}
-//               alt="Perfume Scene"
-//               className="w-full h-64 object-cover rounded-2xl hover:scale-105 transition-transform duration-500"
-//               initial={{ opacity: 0, scale: 0.9 }}
-//               whileInView={{ opacity: 1, scale: 1 }}
-//               transition={{ duration: 0.6, delay: i * 0.1 }}
-//               viewport={{ once: true }}
-//             />
-//           ))}
-//         </div>
-//       </section>
-
-//       {/* Closing Section */}
-//       <section className="py-24 text-center bg-gradient-to-b from-[#0d0d0d] to-black px-6">
-//         <motion.h2
-//           initial={{ opacity: 0, y: 40 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//           viewport={{ once: true }}
-//           className="text-3xl sm:text-5xl font-semibold text-white mb-8"
-//         >
-//           Dare to Stay Cool
-//         </motion.h2>
-//         <motion.p
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 1 }}
-//           viewport={{ once: true }}
-//           className="text-gray-400 text-lg max-w-2xl mx-auto"
-//         >
-//           Frost Noir isn’t for everyone — it’s for the few who turn silence into power and presence into a storm. Wear it, and the night belongs to you.
-//         </motion.p>
-//       </section>
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useEffect, useState } from "react";
 // import { motion } from "framer-motion";
 import { motion, AnimatePresence } from "framer-motion";
@@ -1029,7 +59,7 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
-    role: "Flutter Developer",
+    role: "Software Developer",
     place: "QuickPost",
     year: "2025",
     points: [
@@ -1038,6 +68,30 @@ const experiences: Experience[] = [
       "Focused on scalable architecture and clean UI inspired by WhatsApp/Twitter.",
     ],
     tech: ["React", "Tailwind", "Firebase"],
+  },
+    {
+    role: "Backend Developer",
+    place: "Softray Industries",
+    year: "2025",
+    points: [
+      "Designed and developed a social media app with login, feed, and Firebase integration.",
+      "Implemented real-time features such as likes, comments, and notifications.",
+      "Focused on scalable architecture and clean UI inspired by WhatsApp/Twitter.",
+    ],
+    tech: ["React", "Tailwind", "Firebase"],
+  },
+  {
+    role: "Agentic Loop Engineer",
+    place: "Apple Inc.",
+    year: "2025",
+    points: [
+      "Designed a AI agent loop system by braking down complex problems into smaller, manageable steps.",
+      "Harvesting multiple agents to solve complex problems and tasks in ... and review loop",
+      "managing the agent in a singular shared context awareness in an obsidian vault which enables them to do and perform tasks grater than the sum of it parts",
+      "This cut down the development time with AI by 80% saying a app can be built compiled and shipped with MCP servers if the Agentic loop Engineer loop system design is regorous enough, one man is enough for the job",
+      "check out my article on Agentic loop engineering"
+    ],
+    tech: ["Obsidian", "NestJS", "Python", "NodeJS", "NextJS", "TailwindCSS"],
   },
   {
     role: "Python Developer",
@@ -1218,35 +272,6 @@ export default function PortfolioLanding() {
             data-section="About"
             className="relative bg-gradient-to-b from-gray-850 to-gray-900 max-w-3xl mx-auto py-10 px-6 md:mt-16 text-left"
           >
-            {/* Face image overlap */}
-            {/* <div className="relative">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXX5XFluj9yj0C0gdNarbys3qb_vtY26efA&s"
-                // alt="Profile face"
-                // text-[clamp(2.1rem,6vw,2.5rem)]
-                className="
-                  absolute 
-                  top-[-8rem] 
-                  right-0
-                  w-48 h-48
-                  rounded-full
-
-                  sm:top-[-12rem]
-                  sm:w-64 sm:h-64
-                  
-                  md:relative
-                  md:top-0
-                  md:right-0
-                  md:mx-auto
-
-                  md:w-full
-                  md:h-auto
-                  md:max-h_full
-                  md:rounded-none
-                  object_contain
-                "
-              />
-            </div> */}
 
             <h2 className="text-xl font-bold mb-1 text-gray-300 py-4
             ">ABOUT</h2>
@@ -1588,6 +613,7 @@ export default function PortfolioLanding() {
             transition={{ delay: 0.6 }}
             className="flex items-center gap-2 text-xl md:text-xl font-semibold text-gray-400 py-4 px-4 max-w-md"
           >
+            {/* <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors"> */}
             View Full Resume
             <ArrowUpRight size={24} />
           </motion.h2>
@@ -1598,149 +624,115 @@ export default function PortfolioLanding() {
 
 
 
+    {/* Skills Section */}
+    <section
+      data-section="Skills"
+      className="max-w-5xl mx-auto py-10 px-6 text-center"
+    >
+      {/* Heading */}
+      <h2 className="text-3xl font-bold mb-12 text-gray-300">
+        Tech Stack
+      </h2>
 
+      <div className="grid gap-6">
+        {/* Frontend */}
+        <div>
+          <h3 className="text-xl text-start font-semibold text-gray-400 mb-6">Frontend</h3>
 
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
+              <SiFlutter className="text-white text-5xl" />
+              <span className="font-medium text-gray-400">Flutter</span>
+            </div>
 
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
+              <SiReact className="text-white text-5xl" />
+              <span className="font-medium text-gray-400">React</span>
+            </div>
 
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
+              <FaJsSquare className="text-white text-5xl" />
+              <span className="font-medium text-gray-400">JavaScript</span>
+            </div>
 
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
+              <SiTailwindcss className="text-white text-5xl" />
+              <span className="font-medium text-gray-400">Tailwind CSS</span>
+            </div>
 
-
-
-
-
-          {/* Skills Section */}
-          <section
-  data-section="Skills"
-  className="max-w-5xl mx-auto py-10 px-6 text-center"
->
-  {/* Heading */}
-  <h2 className="text-3xl font-bold mb-12 text-gray-300">
-    Tech Stack
-  </h2>
-
-  <div className="grid gap-6">
-    {/* Frontend */}
-    <div>
-      <h3 className="text-xl text-start font-semibold text-gray-400 mb-6">Frontend</h3>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
-          <SiFlutter className="text-white text-5xl" />
-          <span className="font-medium text-gray-400">Flutter</span>
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
+              <SiNextdotjs className="text-white text-5xl" />
+              <span className="font-medium text-gray-400">Next.js</span>
+            </div>
+          </div>
         </div>
 
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
-          <SiReact className="text-white text-5xl" />
-          <span className="font-medium text-gray-400">React</span>
-        </div>
 
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
-          <FaJsSquare className="text-white text-5xl" />
-          <span className="font-medium text-gray-400">JavaScript</span>
-        </div>
+        {/* Backend / Services */}
+        <div>
+          <h3 className="text-xl text-start font-semibold text-gray-400 mb-6">
+            Backend & Services
+          </h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
 
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
-          <SiTailwindcss className="text-white text-5xl" />
-          <span className="font-medium text-gray-400">Tailwind CSS</span>
-        </div>
+            {/* Python */}
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+              <SiPython className="h-12 w-12 text-white" />
+              <span className="font-medium text-gray-400">Python</span>
+            </div>
 
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition">
-          <SiNextdotjs className="text-white text-5xl" />
-          <span className="font-medium text-gray-400">Next.js</span>
+            {/* Node.js */}
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+              <SiNodedotjs className="h-12 w-12 text-white" />
+              <span className="font-medium text-gray-400">Node.js</span>
+            </div>
+
+            {/* Django */}
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+              <SiDjango className="h-12 w-12 text-white" />
+              <span className="font-medium text-gray-400">Django</span>
+            </div>
+
+            {/* SQL */}
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+              <SiMysql className="h-12 w-12 text-white" />
+              <span className="font-medium text-gray-400">MySql</span>
+            </div>
+
+            {/* Flask */}
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+              <SiFlask className="h-12 w-12 text-white" />
+              <span className="font-medium text-gray-400">Flask</span>
+            </div>
+
+            {/* Nestjs */}
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+              <SiNestjs className="h-12 w-12 text-white" />
+              <span className="font-medium text-gray-400">Nest.js</span>
+            </div>
+
+            {/* Firebase */}
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+              <SiFirebase className="h-12 w-12 text-white" />
+              <span className="font-medium text-gray-400">Firebase</span>
+            </div>
+
+            {/* Supabase */}
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+              <SiSupabase className="h-12 w-12 text-white" />
+              <span className="font-medium text-gray-400">Supabase</span>
+            </div>
+
+            {/* Postgresql */}
+            <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
+              <SiPostgresql className="h-12 w-12 text-white" />
+              <span className="font-medium text-gray-400">Postgresql</span>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
-
-
-    {/* Backend / Services */}
-    <div>
-      <h3 className="text-xl text-start font-semibold text-gray-400 mb-6">
-        Backend & Services
-      </h3>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-
-        {/* Python */}
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiPython className="h-12 w-12 text-white" />
-          <span className="font-medium text-gray-400">Python</span>
-        </div>
-
-        {/* Node.js */}
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiNodedotjs className="h-12 w-12 text-white" />
-          <span className="font-medium text-gray-400">Node.js</span>
-        </div>
-
-         {/* Django */}
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiDjango className="h-12 w-12 text-white" />
-          <span className="font-medium text-gray-400">Django</span>
-        </div>
-
-        {/* SQL */}
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiMysql className="h-12 w-12 text-white" />
-          <span className="font-medium text-gray-400">MySql</span>
-        </div>
-
-        {/* Flask */}
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiFlask className="h-12 w-12 text-white" />
-          <span className="font-medium text-gray-400">Flask</span>
-        </div>
-
-         {/* Nestjs */}
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiNestjs className="h-12 w-12 text-white" />
-          <span className="font-medium text-gray-400">Nest.js</span>
-        </div>
-
-        {/* Firebase */}
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiFirebase className="h-12 w-12 text-white" />
-          <span className="font-medium text-gray-400">Firebase</span>
-        </div>
-
-        {/* Supabase */}
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiSupabase className="h-12 w-12 text-white" />
-          <span className="font-medium text-gray-400">Supabase</span>
-        </div>
-
-        {/* Postgresql */}
-        <div className="flex flex-col items-center gap-3 p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition hover:scale-105">
-          <SiPostgresql className="h-12 w-12 text-white" />
-          <span className="font-medium text-gray-400">Postgresql</span>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-          {/* Skills Section */}
-          {/* <section
-            data-section="Skills"
-            className="max-w-5xl mx-auto py-20 px-6 text-center"
-            >
-            <h2 className="text-3xl font-bold mb-12 text-purple-400">
-              Blog / Writing Section
-            </h2>
-            <p>
-              Share learnings about Flutter, Firebase, UI tips, etc.
-              Even 2–3 short posts makes you look like a thought leader.
-            </p>
-            <h2 className="text-3xl font-bold mb-12 text-purple-400">
-              Fun / Personality Section
-            </h2>
-            <p>
-              Hobbies, values, or a “Beyond Code” mini-section.
-              Could be styled playful but short (don’t overshadow main dev profile).
-            </p>
-          </section> */}
-
+    </section>
 
 
 
